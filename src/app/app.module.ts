@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutes } from './app.routes';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -16,6 +16,8 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingListAddComponent } from './shopping-list/shopping-list-add.component';
 
 import { ShoppingService } from './shopping-list/shopping.service';
+import { RecipeStartComponent } from './recipes/recipe-start.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 @NgModule({
   declarations: [
@@ -27,13 +29,15 @@ import { ShoppingService } from './shopping-list/shopping.service';
     RecipeDetailComponent,
     DropdownDirective,
     ShoppingListComponent,
-    ShoppingListAddComponent
+    ShoppingListAddComponent,
+    RecipeStartComponent,
+    RecipeEditComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutes
   ],
   providers: [ShoppingService],
   bootstrap: [AppComponent]
