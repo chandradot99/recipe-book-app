@@ -49,10 +49,14 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
     if(!this.isNew) {
       for(let i = 0; i < this.recipe.ingredients.length; i++) {
         recipeIngredients.push(
-          new FormGroup({
-            name: new FormControl(this.recipe.ingredients[i].name, Validators.required),
-            amount: new FormControl(this.recipe.ingredients[i].amount, [Validators.required, Validators.pattern('\\d+')])
-          })          
+          this.formBuilder.group({
+            name: [this.recipe.ingredients[i].name, Validators.required],
+            amount: [this.recipe.ingredients[i].amount, [Validators.required, Validators.pattern('\\d+')]]
+          })
+          // new FormGroup({
+          //   name: new FormControl(this.recipe.ingredients[i].name, Validators.required),
+          //   amount: new FormControl(this.recipe.ingredients[i].amount, [Validators.required, Validators.pattern('\\d+')])
+          // })          
         )
       }
       recipeName = this.recipe.name;
